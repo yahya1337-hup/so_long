@@ -1,11 +1,23 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   help.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: yaboumei <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/02/26 20:16:54 by yaboumei          #+#    #+#             */
+/*   Updated: 2025/02/26 20:16:56 by yaboumei         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "so_long.h"
 
 void	free_mem(char **arr)
 {
-	int i;
+	int	i;
 
 	if (!arr)
-		return;
+		return ;
 	i = 0;
 	while (arr[i])
 	{
@@ -13,11 +25,11 @@ void	free_mem(char **arr)
 		arr[i] = NULL;
 		i++;
 	}
-	free(arr); 
+	free(arr);
 	arr = NULL;
 }
 
-void	initial_value_count(st_counters *counters)
+void	initial_value_count(t_counters *counters)
 {
 	counters->count_c = 0;
 	counters->count_e = 0;
@@ -25,7 +37,7 @@ void	initial_value_count(st_counters *counters)
 	counters->count_p = 0;
 }
 
-void	initial_value_stmap(st_map *map_info)
+void	initial_value_stmap(t_map *map_info)
 {
 	map_info->line = NULL;
 	map_info->len_next = 0;
@@ -36,8 +48,6 @@ void	initial_value_stmap(st_map *map_info)
 
 void	print_image_window(t_game game, t_image imag, int x, int y)
 {
-	mlx_put_image_to_window(game.mlx_ptr, game.mlx_wind, 
-	imag.image_ptr, y * imag.y, x * imag.x );
+	mlx_put_image_to_window(game.mlx_ptr, game.mlx_wind, imag.image_ptr, y
+		* imag.y, x * imag.x);
 }
-
-
